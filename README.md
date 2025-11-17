@@ -26,7 +26,7 @@ Let $Bld$ denote the set of all residential buildings inside a given area, $GFA_
 
 $$ ROcc_B = \frac{Pop}{\sum_{B' \in Bld}{GFA_{B'}}} GFA_B. $$
 
-Additionally, if the set of all buildings is split into formal ($Frm$) and infromal ($Inf$), such that $Frm \cup Inf = Bld$ and $Frm \cap Inf = \empty$, assuming $K$ times more people live in informal areas for the same square meter compared to formal areas the formula can be further adjusted:
+Additionally, if the set of all buildings is split into formal ($Frm$) and infromal ($Inf$), such that $Frm \cup Inf = Bld$ and $Frm \cap Inf = \emptyset$, assuming $K$ times more people live in informal areas for the same square meter compared to formal areas the formula can be further adjusted:
 
 $$ ROcc_B = \frac{Pop}{K \times \sum_{B' \in Inf}{GFA_{B'}} + \sum_{B' \in Frm}{GFA_{B'}}} (IS_B \times K) GFA_B, $$
 
