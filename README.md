@@ -7,7 +7,7 @@ The main idea of estimating occupancy for buildings lies in disaggregation of th
 
 When disaggregating census/statistical data into buildings it is important to measure how many inhabitants would a building attract. In the method below the gross floor area (GFA) of residential buildings is used to provide this metric of attraction. In simple terms comparing two buildings A and B, with A being twice as big as B we should expect around twice as many people living in building A than in building B. The gross floor area of buildings is defined as the sum of floor area of buildings extending to the outer face of the external walls for each floor. In the case of the OBI tool, it can be computed as the footprint area (a*b) times the estimated number of floors (f):
 
-[!pop_break_down](/images/a.png)
+![pop_break_down](/images/a.png)
 
 Additionally, a more complex approach is defined, where informal settlements are taken into consideration, where it is assumed, that a building would attract more inhabitants inside informal settlements, than a building from a formal neighborhood with the same gross floor area.
 
