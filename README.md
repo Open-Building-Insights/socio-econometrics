@@ -1,24 +1,25 @@
 # Estimating socio economical paramaters for residential buildings
 
-## Population
 
 ### Introduction
 
 The main idea of estimating occupancy for buildings lies in disaggregation of the national statistics into buildings proportionally to a selected mix of building attributes, e.g., the gross floor area of buildings. The base idea of dispersing/disaggregating census data to estimate building occupancy or population density in smaller grids is not new, and is used in several papers, including in [a GIS Approach to Estimation of Building Population for Micro-spatial Analysis](https://www.cdema.org/virtuallibrary/images/A%20GIS%20Approach%20to%20Estimation%20of%20Building.pdf), [Estimating Population a 100-meter-geographical grid](https://www.unica360.com/estimating-population-at-a-100-meter-geographical-grid), and [Disaggregating population data for assessing progress of SDGs: methods and applications](https://www.tandfonline.com/doi/epdf/10.1080/17538947.2021.2013553?needAccess=true).
 
-When disaggregating census/statistical data into buildings it is important to measure how many inhabitants would a building attract. In the method below the gross floor area of residential buildings is used to provide this metric of attraction. In simple terms comparing two buildings A and B, with A being twice as big as B we should expect around twice as many people living in building A than in building B. The gross floor area of buildings is defined as the sum of floor area of buildings extending to the outer face of the external walls for each floor. In the case of the OBI tool, it can be computed as the footprint area times the estimated number of floors.
+When disaggregating census/statistical data into buildings it is important to measure how many inhabitants would a building attract. In the method below the gross floor area (GFA) of residential buildings is used to provide this metric of attraction. In simple terms comparing two buildings A and B, with A being twice as big as B we should expect around twice as many people living in building A than in building B. The gross floor area of buildings is defined as the sum of floor area of buildings extending to the outer face of the external walls for each floor. In the case of the OBI tool, it can be computed as the footprint area (a*b) times the estimated number of floors (f):
 
-Additionally, a more complex approach is defined, where infromal settlements are taken into consideration, where it is assumed, that a building would attract more inhabitants inside informal settlements, than a building from a formal neighborhood with the same gross floor area.
+[!pop_break_down](/images/a.png)
+
+Additionally, a more complex approach is defined, where informal settlements are taken into consideration, where it is assumed, that a building would attract more inhabitants inside informal settlements, than a building from a formal neighborhood with the same gross floor area.
 
 In the rest of the text the following is silently assumed:
-- People are distributed into buildings uniformly based on their size
-- People live in residential buildings only
+- People are distributed into buildings uniformly based on their size.
+- People live in residential buildings only.
 
 ### Splitting the Selected Region Into Areas
 
 Generally, population information is collected in census and provided as aggregated results for certain administrative areas. For this exercise it is important to break down any region for the lowest possible available administrative level, especially taking into account of urban and rural boundaries, as buildings can behave differently in those settings.
 
-In our case the local government provided ward level boundaries and aggregates for the cities we apply the population disaggregation. Wards are very small administrative boundaries, therefore this aggreagted data is more precise than city-level aggregates. In our case these boundaries also adhere to city boundaries, hence reliable depicting rural-urban boundaries as well.
+In our case the local government has provided ward level boundaries and aggregates for the cities. Wards are very small administrative boundaries, therefore this aggreagted data is more precise than city-level aggregates. In our case these boundaries also adhere to city boundaries, hence reliable depicting rural-urban boundaries as well.
 
 ### Disaggregating Population For a Given Area
 
@@ -26,7 +27,7 @@ Let $Bld$ denote the set of all residential buildings inside a given area, $GFA_
 
 $$ ROcc_B = \frac{Pop}{\sum_{B' \in Bld}{GFA_{B'}}} GFA_B. $$
 
-Additionally, if the set of all buildings is split into formal ($Frm$) and infromal ($Inf$), such that $Frm \cup Inf = Bld$ and $Frm \cap Inf = \emptyset$, assuming $K$ times more people live in informal areas for the same square meter compared to formal areas the formula can be further adjusted:
+Additionally, if the set of all buildings is split into formal ($Frm$) and informal ($Inf$), such that $Frm \cup Inf = Bld$ and $Frm \cap Inf = \emptyset$, assuming $K$ times more people live in informal areas for the same square meter compared to formal areas the formula can be further adjusted:
 
 $$ ROcc_B = \frac{Pop}{K \times \sum_{B' \in Inf}{GFA_{B'}} + \sum_{B' \in Frm}{GFA_{B'}}} (IS_B \times K) GFA_B, $$
 
