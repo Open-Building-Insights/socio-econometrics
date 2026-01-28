@@ -37,6 +37,7 @@ The factor describing how much more densily are informal settlements populated c
 
 These formulae return real numbers. If the number would be rounded to integers the are could be overestimated significantly. As an example imagine an area with 10  buildings of the same size, where 15 people dwell. Using the methodology above each building would have an estimated occupancy of 1.5, which rounded would yield 2 people. So in our small example the area would be estimated to have 20 population, 5 more than the real number.
 
+
 ### Avoid Rounding
 
 The main idea presented in this section to estimate population of buildings as an integer number is the under-estimation of building population, hence under-estimating the entire area, leading certain amount of people "unassigned" to compensate with in case buildings "deserve" additional occupants. This idea is not new, it is used, for example, in parliamentary voting schemes in countries with proportional voting systems to distribute parliamentary seats between parties, in which case non-real numbers need to be "rounded" to integer numbers while also filling exactly the given number of parliamentary seats.
@@ -57,6 +58,12 @@ Overall, the first $Pop-∑_{B \in Bld} IOcc_B$ are compensated. It is easy to s
 
 $$\begin{cases}\lceil ROcc_B \rceil &\quad\text{B "deserves" compensation}\\
        \lfloor ROcc_B \rfloor &\quad\text{otherwise.} \\ \end{cases} $$
+
+
+The image illustrates the population disaggregation model, which uses residential building size (Gross Floor Area) as a direct proxy for capacity. Based on the assumption that larger buildings house more people, the model distributes the total population proportionally:
+
+![pop_break_down](/images/Pop.png)
+
 
 ### Future Considerations
 
